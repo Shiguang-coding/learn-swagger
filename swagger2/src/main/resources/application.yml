@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: learn-swagger2
+
+#在springboot2.6.X结合swagger2.9.X会提示documentationPluginsBootstrapper空指针异常，
+#原因是在springboot2.6.X中将SpringMVC默认路径匹配策略从AntPathMatcher更改为PathPatternParser，
+# 导致出错，解决办法是matching-strategy切换回之前ant_path_matcher
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# 日期格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+
